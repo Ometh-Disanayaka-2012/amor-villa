@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor Villa Akurala - Beachfront Paradise in Hikkaduwa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .amenity-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .amenity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .amenity-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .booking-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .price-banner {
+            background: #fffbea;
+            border-left: 4px solid #ff6b6b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .price-banner h3 {
+            color: #ff6b6b;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-button svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>🌴 Amor Villa Akurala</h1>
+        <p>Hikkaduwa's Beachfront Paradise</p>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Tropical Escape Awaits</h2>
+            <p>Beachfront • Turtle Hatchery Area • Pure Bliss</p>
+            <a href="#booking" class="cta-button">Book Your Stay</a>
+            <div class="location-badge">📍 Akurala, Hikkaduwa, Sri Lanka</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Welcome to Paradise</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">
+            Experience the magic of beachfront living at Amor Villa Akurala. Located directly on the pristine shores of
+            Hikkaduwa's famous turtle hatchery area, our villa offers the perfect blend of comfort, nature, and
+            adventure. Wake up to the sound of waves and fall asleep under the stars.
+        </p>
+
+        <div class="price-banner">
+            <h3>💰 Only $40 USD per Night</h3>
+            <p>Affordable luxury on the beach • Perfect for families and groups</p>
+        </div>
+
+        <h2 class="section-title">Our Amenities</h2>
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon">🛏️</div>
+                <h3>5 Spacious Rooms</h3>
+                <p>Comfortable accommodation for families and groups</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🚿</div>
+                <h3>AC & Attached Bathrooms</h3>
+                <p>Every room with modern amenities and en-suite facilities</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">📶</div>
+                <h3>High-Speed WiFi</h3>
+                <p>Stay connected throughout your stay</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🏖️</div>
+                <h3>Beachfront Location</h3>
+                <p>Step directly onto the golden sands from our villa</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🐢</div>
+                <h3>Turtle Hatchery Area</h3>
+                <p>Witness turtles nesting right on our beach</p>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-icon">🏄</div>
+                <h3>Near Surf Spots</h3>
+                <p>Perfect waves just minutes away</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 4rem;">Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800"
+                    alt="Beach Villa Exterior">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Luxurious Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800" alt="Ocean View">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Beach Access">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800" alt="Sea Turtle">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800" alt="Sunset View">
+            </div>
+        </div>
+    </div>
+
+    <section class="booking-section" id="booking">
+        <h2 class="section-title" style="color: white;">Book Your Stay</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Fill out the form below and we'll get
+            back to you within 24 hours!</p>
+
+        <form class="booking-form" action="https://formsubmit.co/amorvillaakurala@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Booking Request - Amor Villa Akurala">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" required placeholder="+94 77 123 4567">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Check-In Date *</label>
+                    <input type="date" name="checkin" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Check-Out Date *</label>
+                    <input type="date" name="checkout" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Number of Guests *</label>
+                    <input type="number" name="guests" min="1" max="15" required placeholder="2">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Rooms *</label>
+                    <input type="number" name="rooms" min="1" max="5" required placeholder="1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Special Requests</label>
+                <textarea name="message" rows="4" placeholder="Any special requirements or questions?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Send Booking Request</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <h3>Amor Villa Akurala</h3>
+        <p>Akurala, Hikkaduwa, Sri Lanka</p>
+        <p>📧 amorvillaakurala@gmail.com</p>
+        <p>📱 WhatsApp: +94 77 7494 588</p>
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Amor Villa Akurala. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/94777494588?text=Hi!%20I'm%20interested%20in%20booking%20Amor%20Villa%20Akurala"
+        target="_blank" class="whatsapp-button" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M16 0C7.164 0 0 7.164 0 16c0 2.824.736 5.488 2.016 7.796L0 32l8.448-2.016A15.925 15.925 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.344c-2.444 0-4.784-.664-6.816-1.92l-.488-.288-5.056 1.216 1.216-4.976-.32-.508A13.252 13.252 0 012.656 16C2.656 8.632 8.632 2.656 16 2.656S29.344 8.632 29.344 16 23.368 29.344 16 29.344zm7.296-9.952c-.4-.2-2.368-1.168-2.736-1.304-.368-.128-.64-.2-.904.2-.272.4-1.04 1.304-1.28 1.576-.232.272-.472.304-.872.104-.4-.2-1.696-.624-3.232-1.992-1.192-1.064-2-2.376-2.232-2.776-.232-.4-.024-.616.176-.816.18-.18.4-.472.6-.712.2-.232.272-.4.4-.672.136-.272.068-.504-.032-.712-.104-.2-.904-2.176-1.24-2.984-.328-.784-.664-.68-.904-.688-.232-.008-.496-.008-.76-.008s-.696.096-1.064.496c-.368.4-1.4 1.368-1.4 3.336s1.432 3.872 1.632 4.136c.2.272 2.824 4.312 6.84 6.048.952.416 1.696.664 2.272.848.96.304 1.832.264 2.52.16.768-.112 2.368-.968 2.704-1.904.336-.936.336-1.736.232-1.904-.096-.176-.36-.272-.76-.472z" />
+        </svg>
+    </a>
+</body>
+
+</html>
